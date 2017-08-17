@@ -4,8 +4,6 @@ require('dotenv').config();
 
 const app = express();
 
-console.log(process.env);
-
 const mustache = mustacheExpress()
 mustache.cache = null;
 app.engine('mustache', mustache);
@@ -15,6 +13,10 @@ app.use(express.static('public'));
 
 app.get('/list', (req, res) => {
   res.render('list');
+});
+
+app.get('/book-form', (req, res) => {
+  res.render('book-form');
 });
 
 app.listen(process.env.PORT, () => {
